@@ -7,7 +7,6 @@ import  CreateListButton  from '../components/lists/CreateListButton'
 import { useState, useEffect } from "react"
 import { useAuthStore, useTaskStore } from '../lib/store'
 import { markAppAsReady } from '../lib/farcaster'
-import { useEffect } from "react";
 import { sdk } from "@farcaster/miniapp-sdk";
 
 useEffect(() => {
@@ -221,6 +220,7 @@ export default function HomePage() {
     </div>
   )
 }
+
 
 
 
