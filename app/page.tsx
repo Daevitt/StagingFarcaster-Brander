@@ -155,7 +155,7 @@ export default function HomePage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-300">Performance Level</p>
-                      <p className="text-lg font-bold neon-text">ROOKIE 🚀</p>
+                      <p className="text-lg font-bold neon-text-blue">ROOKIE 🚀</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-gray-300">Next Reward</p>
@@ -163,7 +163,7 @@ export default function HomePage() {
                     </div>
                   </div>
                   <div className="mt-3 w-full bg-gray-700 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-purple-500 to-cyan-400 h-2 rounded-full w-1/4"></div>
+                    <div className="bg-gradient-to-r from-blue-500 to-cyan-400 h-2 rounded-full w-1/4"></div>
                   </div>
                 </div>
               </div>
