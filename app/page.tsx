@@ -1,4 +1,11 @@
-'use client'
+<div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-lime-400 flex items-center justify-center text-xl">
+                📋
+              </div>
+              <div>
+                <h1 className="text-xl font-bold neon-text">TaskList</h1>
+                <p className="text-xs text-green-300 font-mono">MATRIX.PROTOCOL</p>
+              'use client'
 
 import { useEffect, useState } from 'react'
 import  LoginButton  from '../components/auth/LoginButton'
