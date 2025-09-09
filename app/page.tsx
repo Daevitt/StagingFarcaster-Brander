@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import  LoginButton  from '../components/auth/LoginButton'
 import  UserProfile  from '../components/auth/UserProfile'
 import  TaskListCard  from '../components/lists/TaskListCard'
@@ -221,4 +220,5 @@ export default function HomePage() {
     </div>
   )
 }
+
 
