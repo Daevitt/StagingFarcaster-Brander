@@ -9,6 +9,10 @@ export default function CreateListButton() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
+  className="px-5 py-2 rounded-xl border border-green-400 text-green-400 
+           hover:bg-green-400 hover:text-black font-mono 
+           transition-all duration-300 shadow-[0_0_10px_#00ff99]"
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
@@ -82,3 +86,4 @@ export default function CreateListButton() {
     </div>
   );
 }
+
