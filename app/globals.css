@@ -12,6 +12,13 @@
   --neon-purple: 138, 43, 226;
   --neon-cyan: 0, 255, 255;
 }
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: #000;
+  color: #00ff99;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
@@ -414,4 +421,5 @@ body {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
 
