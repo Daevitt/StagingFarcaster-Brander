@@ -72,7 +72,7 @@ export default function TaskListCard({ list, onClick, onDelete }: TaskListCardPr
             <span>0%</span>
           </div>
           <div className="w-full bg-gray-700 rounded-full h-1.5">
-            <div className="bg-gradient-to-r from-purple-500 to-cyan-400 h-1.5 rounded-full w-0 transition-all duration-500"></div>
+            <div className="bg-gradient-to-r from-blue-500 to-cyan-400 h-1.5 rounded-full w-0 transition-all duration-500"></div>
           </div>
         </div>
 
