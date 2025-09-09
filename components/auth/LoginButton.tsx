@@ -35,12 +35,27 @@ export default function LoginButton() {
     <button 
       onClick={handleLogin}
       disabled={isLoading}
-      className="bg-blue-500 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded transition-colors"
+      className="btn-web3-primary w-full relative group overflow-hidden"
     >
-      {isLoading ? 'Connecting...' : 'Connect with Farcaster'}
+      <div className="flex items-center justify-center gap-3">
+        {isLoading ? (
+          <>
+            <div className="web3-spinner w-5 h-5"></div>
+            <span>Connecting to Web3...</span>
+          </>
+        ) : (
+          <>
+            <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-sm">
+              🔗
+            </div>
+            <span className="font-bold">Connect with Farcaster</span>
+          </>
+        )}
+      </div>
+      
+      {!isLoading && (
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+      )}
     </button>
   );
 }
-
-
-
