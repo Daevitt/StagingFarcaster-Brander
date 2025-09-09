@@ -50,12 +50,12 @@ export default function UserProfile() {
             </div>
             
             <div className="grid grid-cols-2 gap-2 mt-3">
-              <div className="text-center p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-cyan-500/20">
+              <div className="text-center p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/20">
                 <div className="text-sm font-bold text-cyan-400">0</div>
                 <div className="text-xs text-gray-400">Points</div>
               </div>
-              <div className="text-center p-2 rounded-lg bg-gradient-to-br from-green-500/20 to-blue-500/20">
-                <div className="text-sm font-bold text-green-400">0</div>
+              <div className="text-center p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-blue-500/20">
+                <div className="text-sm font-bold neon-text-blue">0</div>
                 <div className="text-xs text-gray-400">NFTs</div>
               </div>
             </div>
