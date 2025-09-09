@@ -3,27 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 10, 10, 15;
+  --background-end-rgb: 20, 15, 30;
+  --accent-purple: 147, 51, 234;
+  --accent-cyan: 6, 182, 212;
+  --accent-green: 16, 185, 129;
+  --neon-purple: 138, 43, 226;
+  --neon-cyan: 0, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 10, 10, 15;
+    --background-end-rgb: 20, 15, 30;
   }
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: radial-gradient(circle at 25% 25%, rgba(var(--accent-purple), 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 75% 75%, rgba(var(--accent-cyan), 0.15) 0%, transparent 50%),
+              linear-gradient(135deg, rgb(var(--background-start-rgb)) 0%, rgb(var(--background-end-rgb)) 100%);
+  background-attachment: fixed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(var(--accent-purple)), rgb(var(--accent-cyan)));
+  border-radius: 4px;
 }
 
 @layer utilities {
@@ -32,32 +56,268 @@ body {
   }
 }
 
-/* Estilos para MiniApp */
+/* Web3/Crypto themed components */
 .miniapp-container {
   max-width: 424px;
   margin: 0 auto;
   min-height: 100vh;
-  background: white;
+  background: transparent;
+  position: relative;
 }
 
-.gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+/* Animated gradient background */
+.web3-gradient-bg {
+  background: linear-gradient(-45deg, 
+    rgba(var(--accent-purple), 0.8), 
+    rgba(var(--accent-cyan), 0.6), 
+    rgba(var(--accent-green), 0.7), 
+    rgba(var(--neon-purple), 0.9)
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+  position: relative;
+  overflow: hidden;
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism with web3 feel */
+.crypto-glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
-.btn-primary {
-  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+.crypto-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(var(--neon-cyan), 0.8), 
+    transparent
+  );
 }
 
-.btn-secondary {
-  @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+/* Neon buttons */
+.btn-web3-primary {
+  @apply font-semibold py-3 px-6 rounded-xl transition-all duration-300 text-sm;
+  background: linear-gradient(135deg, rgb(var(--accent-purple)), rgb(var(--accent-cyan)));
+  border: 2px solid transparent;
+  box-shadow: 
+    0 0 20px rgba(var(--accent-purple), 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
 }
 
-.card {
-  @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+.btn-web3-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.2), 
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-web3-primary:hover::before {
+  left: 100%;
+}
+
+.btn-web3-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 30px rgba(var(--accent-purple), 0.5),
+    0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn-web3-secondary {
+  @apply font-semibold py-3 px-6 rounded-xl transition-all duration-300 text-sm;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(var(--accent-cyan), 0.5);
+  backdrop-filter: blur(10px);
+  color: rgb(var(--accent-cyan));
+}
+
+.btn-web3-secondary:hover {
+  background: rgba(var(--accent-cyan), 0.1);
+  border-color: rgb(var(--accent-cyan));
+  box-shadow: 0 0 20px rgba(var(--accent-cyan), 0.3);
+  transform: translateY(-1px);
+}
+
+/* Crypto card styles */
+.crypto-card {
+  @apply rounded-2xl p-6 transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.crypto-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgb(var(--accent-purple)), 
+    rgb(var(--accent-cyan)), 
+    rgb(var(--accent-green))
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.crypto-card:hover::before {
+  opacity: 1;
+}
+
+.crypto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(var(--accent-purple), 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Stats cards with crypto styling */
+.stats-card {
+  @apply text-center p-4 rounded-xl transition-all duration-300;
+  background: linear-gradient(135deg, 
+    rgba(var(--accent-purple), 0.2), 
+    rgba(var(--accent-cyan), 0.1)
+  );
+  border: 1px solid rgba(var(--accent-cyan), 0.3);
+  backdrop-filter: blur(15px);
+}
+
+.stats-card:hover {
+  border-color: rgb(var(--accent-cyan));
+  box-shadow: 0 0 25px rgba(var(--accent-cyan), 0.3);
+}
+
+/* Loading spinner with web3 style */
+.web3-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid rgb(var(--accent-cyan));
+  border-radius: 50%;
+  animation: web3Spin 1s linear infinite;
+}
+
+@keyframes web3Spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Neon text effects */
+.neon-text {
+  color: rgb(var(--neon-cyan));
+  text-shadow: 
+    0 0 5px rgb(var(--neon-cyan)),
+    0 0 10px rgb(var(--neon-cyan)),
+    0 0 15px rgb(var(--neon-cyan));
+}
+
+.neon-text-purple {
+  color: rgb(var(--neon-purple));
+  text-shadow: 
+    0 0 5px rgb(var(--neon-purple)),
+    0 0 10px rgb(var(--neon-purple)),
+    0 0 15px rgb(var(--neon-purple));
+}
+
+/* Animated background particles effect */
+.particles-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(var(--accent-cyan), 0.3), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(var(--accent-purple), 0.3), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(var(--accent-green), 0.3), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(var(--neon-cyan), 0.3), transparent);
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  animation: particlesFloat 20s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes particlesFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+/* Form inputs with web3 styling */
+.web3-input {
+  @apply w-full p-4 rounded-xl text-white transition-all duration-300;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.web3-input:focus {
+  outline: none;
+  border-color: rgb(var(--accent-cyan));
+  box-shadow: 0 0 20px rgba(var(--accent-cyan), 0.3);
+}
+
+.web3-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Header with animated border */
+.web3-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.web3-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    rgb(var(--accent-purple)), 
+    rgb(var(--accent-cyan)), 
+    rgb(var(--accent-green))
+  );
+  background-size: 200% 100%;
+  animation: borderGlow 3s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
