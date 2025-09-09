@@ -7,6 +7,12 @@ import  TaskListCard  from '../components/lists/TaskListCard'
 import  CreateListButton  from '../components/lists/CreateListButton'
 import { useAuthStore, useTaskStore } from '../lib/store'
 import { markAppAsReady } from '../lib/farcaster'
+import { useEffect } from "react";
+import { sdk } from "@farcaster/miniapp-sdk";
+
+useEffect(() => {
+  sdk.actions.ready();
+}, []);
 
 export default function HomePage() {
   const { isAuthenticated } = useAuthStore()
@@ -215,3 +221,4 @@ export default function HomePage() {
     </div>
   )
 }
+
