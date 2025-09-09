@@ -13,6 +13,23 @@
   --neon-cyan: 0, 255, 255;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --matrix-green: #00ff99;
+}
+
+body {
+  background: linear-gradient(to bottom right, #000000, #0a0f0a);
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--matrix-green);
+}
+
+input, textarea {
+  background: black !important;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -397,3 +414,4 @@ body {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+
